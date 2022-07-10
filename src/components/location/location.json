@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_location_locations",
+  "info": {
+    "displayName": "location",
+    "icon": "map-marked-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "latitude": {
+      "type": "float",
+      "default": 41.750476,
+      "max": 90,
+      "min": -90
+    },
+    "longitude": {
+      "type": "float",
+      "max": 180,
+      "min": -180,
+      "default": 44.842617
+    },
+    "name": {
+      "type": "string"
+    },
+    "street_address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::city.city"
+    },
+    "neighborhood": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::neighborhood.neighborhood"
+    }
+  }
+}
