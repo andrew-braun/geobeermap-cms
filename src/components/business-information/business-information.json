@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_business_information_business_informations",
+  "info": {
+    "displayName": "business_information",
+    "icon": "business-time",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "business_type": {
+      "type": "enumeration",
+      "enum": [
+        "brewery",
+        "bar",
+        "restaurant",
+        "retailer"
+      ],
+      "default": "brewery"
+    },
+    "currently_operating": {
+      "type": "boolean",
+      "default": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

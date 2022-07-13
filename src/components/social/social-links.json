@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_social_social_links",
+  "info": {
+    "displayName": "social_links",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "facebook": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    },
+    "untappd": {
+      "type": "string"
+    },
+    "google_maps": {
+      "type": "string"
+    }
+  }
+}
