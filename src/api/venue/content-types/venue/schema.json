@@ -64,6 +64,16 @@
         }
       },
       "component": "social.social-links"
+    },
+    "business_information": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "business-information.business-information"
     }
   }
 }
