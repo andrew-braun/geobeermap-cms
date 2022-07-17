@@ -29,6 +29,7 @@ module.exports = createCoreController(uid, () => {
         },
       },
     },
+    social_links: true,
   };
 
   return {
