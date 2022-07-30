@@ -10,7 +10,7 @@ const { createCoreController } = require("@strapi/strapi").factories;
 
 const uid = "api::venue.venue";
 
-module.exports = createCoreController(uid, () => {
+module.exports = createCoreController(uid, ({ strapi }) => {
   const components = {
     location: {
       populate: {
@@ -48,19 +48,26 @@ module.exports = createCoreController(uid, () => {
       return super.find(ctx);
     },
     async findOne(ctx) {
-      const { id } = ctx.request.params;
+      const { id, slug } = ctx.request.params;
 
       if (ctx.query.populate === "*") {
-        const entity = await strapi.entityService.findOne(uid, id, {
-          ...ctx.query,
+        const entities = await strapi.db.query("api::venue.venue").findMany({
+          select: ["*"],
+          where: { slug: slug },
           populate: components,
         });
-        const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+
+        const sanitizedEntity = await this.sanitizeOutput(entities[0], ctx);
 
         return this.transformResponse(sanitizedEntity);
       }
 
-      return super.findOne(ctx);
+      const entities = await strapi.db.query("api::venue.venue").findMany({
+        select: ["*"],
+        where: { slug: slug },
+      });
+
+      return entities[0];
     },
   };
 });
