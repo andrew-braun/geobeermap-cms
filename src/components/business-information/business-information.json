@@ -22,11 +22,30 @@
       "default": true
     },
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "business_type_2": {
+      "type": "enumeration",
+      "enum": [
+        "brewery",
+        "bar",
+        "restaurant",
+        "retailer"
+      ]
+    },
+    "business_type_3": {
+      "type": "enumeration",
+      "enum": [
+        "brewery",
+        "bar",
+        "restaurant",
+        "retailer"
+      ]
     }
   }
 }
