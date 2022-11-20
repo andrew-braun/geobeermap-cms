@@ -38,6 +38,9 @@
     "location_id": {
       "type": "string",
       "required": true
+    },
+    "map_link": {
+      "type": "string"
     }
   }
 }
