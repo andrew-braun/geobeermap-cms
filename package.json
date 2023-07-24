@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "description": "GeoBeerMap CMS",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
@@ -11,12 +12,12 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-i18n": "4.3.6",
-    "@strapi/plugin-users-permissions": "4.3.6",
-    "@strapi/provider-upload-cloudinary": "^4.2.3",
-    "@strapi/strapi": "4.3.6",
-    "@strapi/utils": "^4.3.6",
-    "pg": "8.6.0"
+    "@strapi/plugin-i18n": "4.11.7",
+    "@strapi/plugin-users-permissions": "4.11.7",
+    "@strapi/provider-upload-cloudinary": "^4.11.7",
+    "@strapi/strapi": "4.11.7",
+    "@strapi/utils": "^4.11.7",
+    "pg": "8.11.1"
   },
   "author": {
     "name": "Andrew Braun"
@@ -25,7 +26,7 @@
     "uuid": "123b55a9-6c20-4f17-a5f3-610c4bc7c382"
   },
   "engines": {
-    "node": ">=12.x.x <=16.x.x",
+    "node": ">=14.x.x <=18.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
