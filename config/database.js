@@ -1,5 +1,3 @@
-console.log("Running in development")
-
 module.exports = ({ env }) => ({
   connection: {
     client: "postgres",
