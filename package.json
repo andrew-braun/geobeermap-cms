@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "description": "GeoBeerMap CMS",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
