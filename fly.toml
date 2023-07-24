@@ -6,6 +6,7 @@
 app = "geobeermap-cms"
 primary_region = "otp"
 
+<<<<<<< HEAD
 [env]
 PORT = "1337"
 
@@ -40,3 +41,12 @@ PORT = "1337"
   #   auto_start_machines = true
   #   min_machines_running = 0
   #   processes = ["app"]
+=======
+[http_service]
+  internal_port = 1337
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+>>>>>>> 0a158924ea5da7b03efaf7afdf2ba99411201392
