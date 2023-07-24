@@ -4,7 +4,8 @@
   "info": {
     "singularName": "country",
     "pluralName": "countries",
-    "displayName": "country"
+    "displayName": "country",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -32,11 +33,10 @@
       "type": "uid",
       "targetField": "name"
     },
-    "city": {
+    "cities": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::city.city",
-      "inversedBy": "country"
+      "relation": "oneToMany",
+      "target": "api::city.city"
     }
   }
 }

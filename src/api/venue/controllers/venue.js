@@ -51,7 +51,7 @@ module.exports = createCoreController(uid, ({ strapi }) => {
       const { id, slug } = ctx.request.params;
 
       if (ctx.query.populate === "*") {
-        const entities = await strapi.db.query("api::venue.venue").findMany({
+        const entities = await strapi.db.query(uid).findMany({
           select: ["*"],
           where: { slug: slug },
           populate: components,
@@ -62,12 +62,81 @@ module.exports = createCoreController(uid, ({ strapi }) => {
         return this.transformResponse(sanitizedEntity);
       }
 
-      const entities = await strapi.db.query("api::venue.venue").findMany({
+      const entities = await strapi.db.query(uid).findMany({
         select: ["*"],
         where: { slug: slug },
       });
 
       return entities[0];
     },
-  };
-});
+
+    async processNetlifyJSON(ctx) {
+      try {
+        const { data, content } = ctx.request.body;
+        const { date, name, type, open, address, city, country, coordinates, openingdate, logo, beers, website, googlemaps, facebook, instagram, untappd, path, title } = data;
+
+        const basicInfo = {
+          name: name,
+          slug: title,
+          description: content,
+        }
+
+        const splitCoordinates = coordinates.split(",")
+        const latitude = splitCoordinates[0]
+        const longitude = splitCoordinates[1]
+
+        const locationInfo = {
+          location: [
+
+            {
+              location_id: title,
+              latitude,
+              longitude,
+              street_address: address,
+              city: {
+                connect: [1]
+              },
+              country: {
+                connect: [1]
+              }
+            }
+          ]
+        }
+
+        const socialInfo = {
+          social_links: {
+            facebook: facebook ?? null,
+            instagram: instagram ?? null,
+            untappd: untappd ?? null,
+            website: website ?? null,
+            google_maps: googlemaps ?? null,
+          }
+        }
+
+        const businessInfo = {
+          business_information: {
+            type,
+            currently_operating: open,
+          }
+        }
+
+        const venue = await strapi.entityService.create(uid, {
+          data: {
+            ...basicInfo,
+            ...locationInfo,
+            ...socialInfo,
+            ...businessInfo
+          }
+        })
+
+        // console.log(venue)
+
+      }
+      catch (error) {
+        console.error(error?.message)
+        console.error(error?.details)
+        // console.error(error)
+      }
+    }
+  }
+})

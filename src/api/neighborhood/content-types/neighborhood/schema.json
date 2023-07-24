@@ -27,12 +27,6 @@
     "slug": {
       "type": "uid",
       "targetField": "name"
-    },
-    "city": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::city.city",
-      "mappedBy": "neighborhood"
     }
   }
 }

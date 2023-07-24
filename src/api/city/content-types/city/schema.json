@@ -33,17 +33,10 @@
       "type": "uid",
       "targetField": "name"
     },
-    "neighborhood": {
+    "neighborhoods": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::neighborhood.neighborhood",
-      "inversedBy": "city"
-    },
-    "country": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::country.country",
-      "inversedBy": "city"
+      "relation": "oneToMany",
+      "target": "api::neighborhood.neighborhood"
     }
   }
 }
